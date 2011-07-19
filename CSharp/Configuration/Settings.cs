@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Specialized;
 
-namespace SecureSwitch.Configuration {
+namespace SecuritySwitch.Configuration {
 
 	/// <summary>
-	/// The different modes supported for the &lt;secureSwitch&gt; configuration section.
+	/// The different modes supported for the &lt;securitySwitch&gt; configuration section.
 	/// </summary>
 	public enum Mode {
 		/// <summary>
@@ -50,7 +50,7 @@ namespace SecureSwitch.Configuration {
 
 
 	/// <summary>
-	/// Settings contains the settings of a SecureSwitch configuration section.
+	/// Settings contains the settings of a SecuritySwitch configuration section.
 	/// </summary>
 	public class Settings {
 

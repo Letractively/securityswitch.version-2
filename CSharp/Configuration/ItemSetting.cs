@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-namespace SecureSwitch.Configuration {
+namespace SecuritySwitch.Configuration {
 
 	/// <summary>
 	/// Indicates the type of security for a file or directory.
@@ -73,7 +73,7 @@ namespace SecureSwitch.Configuration {
 
 
 	/// <summary>
-	/// The ItemSetting class is the base class that represents entries in the &lt;secureSwitch&gt;
+	/// The ItemSetting class is the base class that represents entries in the &lt;securitySwitch&gt;
 	/// configuration section.
 	/// </summary>
 	public class ItemSetting {

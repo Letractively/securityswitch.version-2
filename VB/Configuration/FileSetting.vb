@@ -1,7 +1,7 @@
-Namespace SecureSwitch.Configuration
+Namespace SecuritySwitch.Configuration
 
 	''' <summary>
-	''' The FileSetting class represents an file entry in the &lt;secureSwitch&gt;
+	''' The FileSetting class represents an file entry in the &lt;securitySwitch&gt;
 	''' configuration section.
 	''' </summary>
 	Public Class FileSetting

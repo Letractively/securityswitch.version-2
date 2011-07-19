@@ -1,7 +1,7 @@
 Imports System.Web
-Imports SecureSwitch.Configuration
+Imports SecuritySwitch.Configuration
 
-Namespace SecureSwitch
+Namespace SecuritySwitch
 
 	''' <summary>
 	''' The SSLHelper class provides Shared methods for ensuring that a page is rendered 

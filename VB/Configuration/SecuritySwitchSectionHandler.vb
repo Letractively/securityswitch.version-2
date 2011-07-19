@@ -2,15 +2,15 @@ Imports System.Collections.Specialized
 Imports System.Configuration
 Imports System.Text.RegularExpressions
 Imports System.Xml
-Imports SecureSwitch.Configuration
+Imports SecuritySwitch.Configuration
 
-Namespace SecureSwitch
+Namespace SecuritySwitch
 
 	''' <summary>
-	''' The exception thrown for any errors while reading the SecureSwitch 
+	''' The exception thrown for any errors while reading the SecuritySwitch 
 	''' section of a configuration file.
 	''' </summary>
-	Public Class SecureSwitchSectionException
+	Public Class SecuritySwitchSectionException
 		Inherits System.Configuration.ConfigurationException
 
 		''' <summary>
@@ -26,9 +26,9 @@ Namespace SecureSwitch
 
 
 	''' <summary>
-	''' SecureSwitchSectionHandler reads any <SecureSwitch> section from a configuration file.
+	''' SecuritySwitchSectionHandler reads any <SecuritySwitch> section from a configuration file.
 	''' </summary>
-	Public Class SecureSwitchSectionHandler
+	Public Class SecuritySwitchSectionHandler
 		Implements IConfigurationSectionHandler
 
 		''' <summary>
@@ -72,7 +72,7 @@ Namespace SecureSwitch
 					Settings.Files.Add(ReadFileItem(Node))
 				Else
 					' Throw an exception for this unrecognized node
-					Throw New SecureSwitchSectionException(String.Format("'{0}' is not an acceptable setting.", Node.Name), Node)
+					Throw New SecuritySwitchSectionException(String.Format("'{0}' is not an acceptable setting.", Node.Name), Node)
 				End If
 			Next
 
@@ -81,7 +81,7 @@ Namespace SecureSwitch
 		End Function
 
 		''' <summary>
-		''' Reads general settings from the SecureSwitch section into the given Settings instance.
+		''' Reads general settings from the SecuritySwitch section into the given Settings instance.
 		''' </summary>
 		''' <param name="section">The XmlNode to read from.</param>
 		''' <param name="settings">The Settings instance to set.</param>
@@ -92,7 +92,7 @@ Namespace SecureSwitch
 				If [Enum].IsDefined(GetType(Mode), ModeValue) Then
 					settings.Mode = CType([Enum].Parse(GetType(Mode), ModeValue), Mode)
 				Else
-					Throw New SecureSwitchSectionException("Invalid value for the 'mode' attribute.", section)
+					Throw New SecuritySwitchSectionException("Invalid value for the 'mode' attribute.", section)
 				End If
 			End If
 
@@ -108,7 +108,7 @@ Namespace SecureSwitch
 
 			' Validate that if either encryptedUri or unencryptedUri are set, both must be set
 			If (settings.EncryptedUri.Length > 0 And settings.UnencryptedUri.Length = 0) Or (settings.UnencryptedUri.Length > 0 And settings.EncryptedUri.Length = 0) Then
-				Throw New SecureSwitchSectionException("You must specify both 'encryptedUri' and 'unencryptedUri', or neither.", section)
+				Throw New SecuritySwitchSectionException("You must specify both 'encryptedUri' and 'unencryptedUri', or neither.", section)
 			End If
 
 			' Get the maintainPath attribute
@@ -123,7 +123,7 @@ Namespace SecureSwitch
 				If [Enum].IsDefined(GetType(SecurityWarningBypassMode), WarningBypassModeValue) Then
 					settings.WarningBypassMode = CType([Enum].Parse(GetType(SecurityWarningBypassMode), WarningBypassModeValue), SecurityWarningBypassMode)
 				Else
-					Throw New SecureSwitchSectionException("Invalid value for the 'warningBypassMode' attribute.", section)
+					Throw New SecuritySwitchSectionException("Invalid value for the 'warningBypassMode' attribute.", section)
 				End If
 			End If
 
@@ -155,12 +155,12 @@ Namespace SecureSwitch
 					If [Enum].IsDefined(GetType(SecurityType), SecureValue) Then
 						item.Secure = CType([Enum].Parse(GetType(SecurityType), SecureValue), SecurityType)
 					Else
-						Throw New SecureSwitchSectionException("Invalid value for the 'secure' attribute.", node)
+						Throw New SecuritySwitchSectionException("Invalid value for the 'secure' attribute.", node)
 					End If
 				End If
 			Else
 				' Throw an exception for the missing Path attribute
-				Throw New SecureSwitchSectionException("'path' attribute not found.", node)
+				Throw New SecuritySwitchSectionException("'path' attribute not found.", node)
 			End If
 		End Sub
 

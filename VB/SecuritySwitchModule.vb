@@ -1,15 +1,15 @@
 Imports System.Configuration
 Imports System.Web
-Imports SecureSwitch.Configuration
+Imports SecuritySwitch.Configuration
 
-Namespace SecureSwitch
+Namespace SecuritySwitch
 
 	''' <summary>
-	''' The SecureSwitchModule class hooks the application's BeginRequest event
+	''' The SecuritySwitchModule class hooks the application's BeginRequest event
 	''' in order to request the current page securely if specified in the 
 	''' configuration file.
 	''' </summary>
-	Public Class SecureSwitchModule
+	Public Class SecuritySwitchModule
 		Implements IHttpModule
 
 		''' <summary>
@@ -27,7 +27,7 @@ Namespace SecureSwitch
 		End Sub
 
 		''' <summary>
-		''' Occurs just before the SecureSwitchModule evaluates the current request.
+		''' Occurs just before the SecuritySwitchModule evaluates the current request.
 		''' </summary>
 		Public Event BeforeEvaluateRequest As BeforeEvaluateRequestEventHandler
 
@@ -37,8 +37,8 @@ Namespace SecureSwitch
 		''' <param name="Application">The HttpApplication this module is bound to.</param>
 		Public Sub Init(ByVal context As HttpApplication) Implements IHttpModule.Init
 			If Not context Is Nothing Then
-				' Get the settings for the SecureSwitch section
-				Dim Settings As Settings = CType(ConfigurationSettings.GetConfig("SecureSwitch"), Settings)
+				' Get the settings for the SecuritySwitch section
+				Dim Settings As Settings = CType(ConfigurationSettings.GetConfig("SecuritySwitch"), Settings)
 				If Not Settings Is Nothing AndAlso Settings.Mode <> Mode.Off Then
 					' Store the settings in application state for quick access on each request
 					context.Application("Settings") = Settings
@@ -100,9 +100,9 @@ Namespace SecureSwitch
 
 	''' <summary>
 	''' Represents the method that handles the event raised just before a request is evaluated by 
-	''' the SecureSwitchModule.
+	''' the SecuritySwitchModule.
 	''' </summary>
-	''' <param name="sender">The SecureSwitchModule that is the source of the event.</param>
+	''' <param name="sender">The SecuritySwitchModule that is the source of the event.</param>
 	''' <param name="e">An EvaluateRequestEventArgs that contains the event data.</param>
 	Public Delegate Sub BeforeEvaluateRequestEventHandler(ByVal sender As Object, ByVal e As EvaluateRequestEventArgs)
 

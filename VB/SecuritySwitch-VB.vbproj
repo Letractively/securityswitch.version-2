@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "SecureSwitch"
+                AssemblyName = "SecuritySwitch"
                 AssemblyOriginatorKeyFile = ""
                 AssemblyOriginatorKeyMode = "None"
                 DefaultClientScript = "JScript"
@@ -101,7 +101,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SecureSwitchModule.vb"
+                    RelPath = "SecuritySwitchModule.vb"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -126,7 +126,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Configuration\SecureSwitchSectionHandler.vb"
+                    RelPath = "Configuration\SecuritySwitchSectionHandler.vb"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

@@ -1,9 +1,9 @@
 using System;
 
-namespace SecureSwitch.Configuration {
+namespace SecuritySwitch.Configuration {
 
 	/// <summary>
-	/// The DirectorySetting class represents a directory entry in the &lt;secureSwitch&gt;
+	/// The DirectorySetting class represents a directory entry in the &lt;securitySwitch&gt;
 	/// configuration section.
 	/// </summary>
 	public class DirectorySetting : ItemSetting {

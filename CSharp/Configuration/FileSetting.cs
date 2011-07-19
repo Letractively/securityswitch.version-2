@@ -1,9 +1,9 @@
 using System;
 
-namespace SecureSwitch.Configuration {
+namespace SecuritySwitch.Configuration {
 
 	/// <summary>
-	/// The FileSetting class represents an file entry in the &lt;secureSwitch&gt;
+	/// The FileSetting class represents an file entry in the &lt;securitySwitch&gt;
 	/// configuration section.
 	/// </summary>
 	public class FileSetting : ItemSetting {

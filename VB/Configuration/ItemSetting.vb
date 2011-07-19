@@ -1,6 +1,6 @@
 Imports System.Collections
 
-Namespace SecureSwitch.Configuration
+Namespace SecuritySwitch.Configuration
 
 	''' <summary>
 	''' Indicates the type of security for a ItemSetting.
@@ -72,7 +72,7 @@ Namespace SecureSwitch.Configuration
 
 
 	''' <summary>
-	''' The ItemSetting class is the base class that represents entries in the &lt;secureSwitch&gt;
+	''' The ItemSetting class is the base class that represents entries in the &lt;securitySwitch&gt;
 	''' configuration section.
 	''' </summary>
 	Public Class ItemSetting

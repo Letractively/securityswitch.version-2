@@ -1,20 +1,20 @@
 using System;
 using System.Configuration;
 using System.Web;
-using SecureSwitch.Configuration;
+using SecuritySwitch.Configuration;
 
-namespace SecureSwitch {
+namespace SecuritySwitch {
 
 	/// <summary>
 	/// Hooks the application's BeginRequest event in order to request the current 
 	/// page securely if specified in the configuration file.
 	/// </summary>
-	public class SecureSwitchModule : IHttpModule {
+	public class SecuritySwitchModule : IHttpModule {
 
 		/// <summary>
 		/// Initializes an instance of this class.
 		/// </summary>
-		public SecureSwitchModule() {
+		public SecuritySwitchModule() {
 		}
 
 		/// <summary>
@@ -25,7 +25,7 @@ namespace SecureSwitch {
 		}
 
 		/// <summary>
-		/// Occurs just before the SecureSwitchModule evaluates the current request.
+		/// Occurs just before the SecuritySwitchModule evaluates the current request.
 		/// </summary>
 		public event BeforeEvaluateRequestEventHandler BeforeEvaluateRequest;
 
@@ -35,8 +35,8 @@ namespace SecureSwitch {
 		/// <param name="application">The HttpApplication this module is bound to.</param>
 		public void Init(HttpApplication context) {
 			if (context != null) {
-				// Get the settings for the SecureSwitch section.
-				Settings Settings = (Settings)ConfigurationSettings.GetConfig("secureSwitch");
+				// Get the settings for the SecuritySwitch section.
+				Settings Settings = (Settings)ConfigurationSettings.GetConfig("securitySwitch");
 				if (Settings != null && Settings.Mode != Mode.Off) {
 					// Store the settings in application state for quick access on each request.
 					context.Application["Settings"] = Settings;
@@ -95,9 +95,9 @@ namespace SecureSwitch {
 
 	/// <summary>
 	/// Represents the method that handles the event raised just before a request is evaluated by 
-	/// the SecureSwitchModule.
+	/// the SecuritySwitchModule.
 	/// </summary>
-	/// <param name="sender">The SecureSwitchModule that is the source of the event.</param>
+	/// <param name="sender">The SecuritySwitchModule that is the source of the event.</param>
 	/// <param name="e">An EvaluateRequestEventArgs that contains the event data.</param>
 	public delegate void BeforeEvaluateRequestEventHandler(object sender, EvaluateRequestEventArgs e);
 

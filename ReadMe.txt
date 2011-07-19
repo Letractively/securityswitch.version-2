@@ -2,7 +2,12 @@
 
 Congratulations!
 
-In order for the SecureSwitchModule to work properly, you'll need to configure either your web application or the web server. The web application configuration file is in the application's virtual root with the name web.config. If you'd like to enable the module for the entire server, the machine.config file should be edited. It is found in your Windows (WinNT) directory under Microsoft.NET/Framework/vX.X.XXXX/Config/machine.config. You may also need to register the assembly in the Global Assembly Cache and include the version, culture and publickeytoken in the machine.config file for machine-level operation.
+In order for the SecuritySwitch module to work properly, you'll need to configure either your web application or 
+the web server. The web application configuration file is in the application's virtual root with the name web.config. 
+If you'd like to enable the module for the entire server, the machine.config file should be edited. It is found in 
+your Windows (WinNT) directory under Microsoft.NET/Framework/vX.X.XXXX/Config/machine.config. You may also need to 
+register the assembly in the Global Assembly Cache and include the version, culture and publickeytoken in the 
+machine.config file for machine-level operation.
 
 Please, add the following lines to the configuration file of your choice:
 
@@ -11,8 +16,8 @@ Please, add the following lines to the configuration file of your choice:
 	<configSections>
 		...
 		<section 
-			name="secureSwitch" 
-			type="SecureSwitch.SecureSwitchSectionHandler, SecureSwitch" allowDefinition="MachineToApplication" 
+			name="securitySwitch" 
+			type="SecuritySwitch.SecuritySwitchSectionHandler, SecuritySwitch" allowDefinition="MachineToApplication" 
 			allowLocation="false" />
 	</configSections>
 	
@@ -23,8 +28,8 @@ Please, add the following lines to the configuration file of your choice:
 		<httpModules>
 			...
 			<add 
-				name="SecureSwitch" 
-				type="SecureSwitch.SecureSwitchModule, SecureSwitch" />
+				name="SecuritySwitch" 
+				type="SecuritySwitch.SecuritySwitchModule, SecuritySwitch" />
 		</httpModules>
 		...
 	</system.web>
@@ -38,7 +43,7 @@ To enable the security module in a web application, add the following section to
 <configuration>
 	...
 	<!--
-	secureSwitch
+	securitySwitch
 		This section will redirect any matching pages to the HTTPS protocol for SSL security
 		and, if needed, redirect any non-matching pages (or pages matching an entry marked secure="false") 
 		to the HTTP protocol to remove the security and encryption.
@@ -87,7 +92,7 @@ To enable the security module in a web application, add the following section to
 		- <directory> tags may include a "recurse" attribute. If "True", all files in any sub-directories
 			are included (default = "False").
 	-->
-	<secureSwitch mode="On">
+	<securitySwitch mode="On">
 		<file path="Default.aspx" secure="False" />
 		<file path="Lib/PopupCalendar.aspx" secure="Ignore" />
 		<file path="Members/ViewStatistics.aspx" />
@@ -95,7 +100,7 @@ To enable the security module in a web application, add the following section to
 		<directory path="/" />
 		<directory path="Admin" />
 		<directory path="Members/Secure" recurse="True" />
-	</secureSwitch>
+	</securitySwitch>
 
 	...
 	

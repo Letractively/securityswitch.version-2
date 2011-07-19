@@ -3,20 +3,20 @@ using System.Collections.Specialized;
 using System.Configuration;
 using System.Text.RegularExpressions;
 using System.Xml;
-using SecureSwitch.Configuration;
+using SecuritySwitch.Configuration;
 
-namespace SecureSwitch {
+namespace SecuritySwitch {
 
 	/// <summary>
-	/// The exception thrown for any errors while reading the secureSwitch 
+	/// The exception thrown for any errors while reading the securitySwitch 
 	/// section of a configuration file.
 	/// </summary>
-	public class SecureSwitchSectionException : System.Configuration.ConfigurationException {
+	public class SecuritySwitchSectionException : System.Configuration.ConfigurationException {
 
 		/// <summary>
 		/// Intializes an instance of this exception.
 		/// </summary>
-		public SecureSwitchSectionException() {
+		public SecuritySwitchSectionException() {
 		}
 
 		/// <summary>
@@ -24,7 +24,7 @@ namespace SecureSwitch {
 		/// </summary>
 		/// <param name="message">The message to display to the client when the exception is thrown.</param>
 		/// <param name="node">The XmlNode that contains the error.</param>
-		public SecureSwitchSectionException(string message, XmlNode node)
+		public SecuritySwitchSectionException(string message, XmlNode node)
 			: base(message, node) {
 		}
 
@@ -32,14 +32,14 @@ namespace SecureSwitch {
 
 
 	/// <summary>
-	/// SecureSwitchSectionHandler reads any &lt;secureSwitch&gt; section from a configuration file.
+	/// SecuritySwitchSectionHandler reads any &lt;securitySwitch&gt; section from a configuration file.
 	/// </summary>
-	public class SecureSwitchSectionHandler : IConfigurationSectionHandler {
+	public class SecuritySwitchSectionHandler : IConfigurationSectionHandler {
 
 		/// <summary>
 		/// Initializes an instance of this class.
 		/// </summary>
-		public SecureSwitchSectionHandler() {
+		public SecuritySwitchSectionHandler() {
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace SecureSwitch {
 					Settings.Files.Add(ReadFileItem(Node));
 				else
 					// Throw an exception for this unrecognized node.
-					throw new SecureSwitchSectionException(string.Format("'{0}' is not an acceptable setting.", Node.Name), Node);
+					throw new SecuritySwitchSectionException(string.Format("'{0}' is not an acceptable setting.", Node.Name), Node);
 			}
 
 			// Return the settings.
@@ -91,7 +91,7 @@ namespace SecureSwitch {
 		}
 
 		/// <summary>
-		/// Reads general settings from the SecureSwitch section into the given Settings instance.
+		/// Reads general settings from the SecuritySwitch section into the given Settings instance.
 		/// </summary>
 		/// <param name="section">The XmlNode to read from.</param>
 		/// <param name="settings">The Settings instance to set.</param>
@@ -102,7 +102,7 @@ namespace SecureSwitch {
 				if (Enum.IsDefined(typeof(Mode), ModeValue))
 					settings.Mode = (Mode)Enum.Parse(typeof(Mode), ModeValue);
 				else
-					throw new SecureSwitchSectionException("Invalid value for the 'mode' attribute.", section);
+					throw new SecuritySwitchSectionException("Invalid value for the 'mode' attribute.", section);
 			}
 
 			// Get the encryptedUri attribute.
@@ -117,7 +117,7 @@ namespace SecureSwitch {
 			if (
 				(settings.EncryptedUri.Length > 0 && settings.UnencryptedUri.Length == 0) ||
 				(settings.UnencryptedUri.Length > 0 && settings.EncryptedUri.Length == 0))
-				throw new SecureSwitchSectionException("You must specify both 'encryptedUri' and 'unencryptedUri', or neither.", section);
+				throw new SecuritySwitchSectionException("You must specify both 'encryptedUri' and 'unencryptedUri', or neither.", section);
 
 			// Get the maintainPath attribute.
 			if (section.Attributes["maintainPath"] != null) {
@@ -131,7 +131,7 @@ namespace SecureSwitch {
 				if (Enum.IsDefined(typeof(SecurityWarningBypassMode), WarningBypassModeValue))
 					settings.WarningBypassMode = (SecurityWarningBypassMode)Enum.Parse(typeof(SecurityWarningBypassMode), WarningBypassModeValue);
 				else
-					throw new SecureSwitchSectionException("Invalid value for the 'warningBypassMode' attribute.", section);
+					throw new SecuritySwitchSectionException("Invalid value for the 'warningBypassMode' attribute.", section);
 			}
 
 			// Get the bypassQueryParamName attribute.
@@ -160,11 +160,11 @@ namespace SecureSwitch {
 					if (Enum.IsDefined(typeof(SecurityType), SecureValue))
 						item.Secure = (SecurityType)Enum.Parse(typeof(SecurityType), SecureValue);
 					else
-						throw new SecureSwitchSectionException("Invalid value for the 'secure' attribute.", node);
+						throw new SecuritySwitchSectionException("Invalid value for the 'secure' attribute.", node);
 				}
 			} else
 				// Throw an exception for the missing Path attribute.
-				throw new SecureSwitchSectionException("'path' attribute not found.", node);
+				throw new SecuritySwitchSectionException("'path' attribute not found.", node);
 		}
 
 		/// <summary>

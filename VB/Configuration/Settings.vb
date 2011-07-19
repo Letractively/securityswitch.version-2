@@ -1,9 +1,9 @@
 Imports System.Collections.Specialized
 
-Namespace SecureSwitch.Configuration
+Namespace SecuritySwitch.Configuration
 
 	''' <summary>
-	''' The different modes supported for the &lt;secureSwitch&gt; configuration section.
+	''' The different modes supported for the &lt;securitySwitch&gt; configuration section.
 	''' </summary>
 	Public Enum Mode
 		''' <summary>
@@ -49,7 +49,7 @@ Namespace SecureSwitch.Configuration
 
 
 	''' <summary>
-	''' Settings contains the settings of a SecureSwitch configuration section.
+	''' Settings contains the settings of a SecuritySwitch configuration section.
 	''' </summary>
 	Public Class Settings
 

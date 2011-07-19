@@ -9,7 +9,7 @@
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "SecureSwitch"
+                AssemblyName = "SecuritySwitch"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "SecureSwitch"
+                RootNamespace = "SecuritySwitch"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -104,7 +104,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SecureSwitchModule.cs"
+                    RelPath = "SecuritySwitchModule.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
@@ -129,7 +129,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Configuration\SecureSwitchSectionHandler.cs"
+                    RelPath = "Configuration\SecuritySwitchSectionHandler.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

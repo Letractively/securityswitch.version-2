@@ -1,7 +1,7 @@
-Namespace SecureSwitch.Configuration
+Namespace SecuritySwitch.Configuration
 
 	''' <summary>
-	''' The DirectorySetting class represents a directory entry in the &lt;secureSwitch&gt;
+	''' The DirectorySetting class represents a directory entry in the &lt;securitySwitch&gt;
 	''' configuration section.
 	''' </summary>
 	Public Class DirectorySetting

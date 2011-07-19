@@ -2,9 +2,9 @@ Imports System
 Imports System.Configuration
 Imports System.Web
 Imports System.Web.Configuration
-Imports SecureSwitch.Configuration
+Imports SecuritySwitch.Configuration
 
-Namespace SecureSwitch
+Namespace SecuritySwitch
 
 	''' <summary>
 	''' Represents an evaluator for requests that 
@@ -81,8 +81,8 @@ Namespace SecureSwitch
 		''' <param name="request">The request to evaluate.</param>
 		''' <returns>A SecurityType value for the appropriate action.</returns>
 		Public Shared Function Evaluate(ByVal request As HttpRequest) As SecurityType
-			' Get the settings for the SecureSwitch section.
-			Dim Settings As Settings = CType(ConfigurationSettings.GetConfig("SecureSwitch"), Settings)
+			' Get the settings for the SecuritySwitch section.
+			Dim Settings As Settings = CType(ConfigurationSettings.GetConfig("SecuritySwitch"), Settings)
 
 			Return Evaluate(request, settings, False)
 		End Function
